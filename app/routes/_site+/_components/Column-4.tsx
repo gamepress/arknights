@@ -112,6 +112,7 @@ export function ColumnFour() {
          >
             <div className="flex flex-col justify-between flex-grow">
                <div>
+                  {/* <div>Remove Ads</div> */}
                   <section className="grid grid-cols-3 gap-4 py-4 relative z-20 max-laptop:max-w-[728px] max-tablet:px-4 max-laptop:mx-auto mx-4 max-laptop:w-full">
                      <div
                         className="dark:bg-dark400 dark:laptop:bg-bg3Dark max-laptop:dark:border-zinc-600/50 bg-white max-laptop:dark:shadow-zinc-800/60
@@ -175,7 +176,7 @@ export function ColumnFour() {
             {groupedTrendingPages.length > 0 ? (
                <>
                   <TabGroup
-                     className="flex-grow overflow-auto z-20 scrollbar 
+                     className="flex-grow overflow-auto z-20 scrollbar max-h-[656px]
                             dark:scrollbar-thumb-zinc-500 dark:scrollbar-track-dark450
                             scrollbar-thumb-zinc-300 scrollbar-track-zinc-100"
                   >
@@ -335,7 +336,7 @@ export function ColumnFour() {
                   </div>
                )}
             </LoggedOut>
-            <div className="max-laptop:py-4 border-t border-color laptop:h-[54px] bg-zinc-50 laptop:bg-white dark:bg-dark350 laptop:dark:bg-dark350/20 flex items-center px-3.5 laptop:w-[333px] z-40 laptop:fixed bottom-0 right-0">
+            <div className="max-laptop:py-4 border-t border-color laptop:h-[54px] bg-zinc-50 laptop:bg-white dark:bg-dark350 flex items-center px-3.5 laptop:w-[333px] z-40 laptop:fixed bottom-0 right-0">
                <div className="justify-between w-full flex items-center max-laptop:max-w-[728px] mx-auto gap-3">
                   {!site.isWhiteLabel && (
                      <Link
