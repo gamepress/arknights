@@ -103,39 +103,39 @@ export function AdUnit({
       };
    }, [pathname]);
 
-   if (enableAds) {
-      return (
-         <>
-            <ClientOnly fallback={<></>}>
-               {() => (
-                  <>
-                     {deviceType.isMobile && adType.mobile ? (
-                        <AdUnitSelector
-                           adType={adType.mobile}
-                           selectorId={selectorId}
-                           className={className}
-                        />
-                     ) : undefined}
-                     {deviceType.isTablet && adType.tablet ? (
-                        <AdUnitSelector
-                           adType={adType.tablet}
-                           selectorId={selectorId}
-                           className={className}
-                        />
-                     ) : undefined}
-                     {deviceType.isDesktop && adType.desktop ? (
-                        <AdUnitSelector
-                           adType={adType.desktop}
-                           selectorId={selectorId}
-                           className={className}
-                        />
-                     ) : undefined}
-                  </>
-               )}
-            </ClientOnly>
-         </>
-      );
-   }
+   if (!enableAds) return <></>;
+
+   className = className + " h-[250px] tablet:h-[90px]"; // set Default height to fix ad cls
+
+   return (
+      <ClientOnly fallback={<div className={className} />}>
+         {() => (
+            <>
+               {deviceType.isMobile && adType.mobile ? (
+                  <AdUnitSelector
+                     adType={adType.mobile}
+                     selectorId={selectorId}
+                     className={className}
+                  />
+               ) : undefined}
+               {deviceType.isTablet && adType.tablet ? (
+                  <AdUnitSelector
+                     adType={adType.tablet}
+                     selectorId={selectorId}
+                     className={className}
+                  />
+               ) : undefined}
+               {deviceType.isDesktop && adType.desktop ? (
+                  <AdUnitSelector
+                     adType={adType.desktop}
+                     selectorId={selectorId}
+                     className={className}
+                  />
+               ) : undefined}
+            </>
+         )}
+      </ClientOnly>
+   );
 }
 
 export function AdPlaceholder({ children }: { children?: ReactNode }) {
