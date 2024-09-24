@@ -1,5 +1,5 @@
 import type { Dispatch, SetStateAction } from "react";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import type {
    MetaFunction,
@@ -15,8 +15,10 @@ import {
    Outlet,
    Scripts,
    useLoaderData,
+   useNavigation,
 } from "@remix-run/react";
 import splideCSS from "@splidejs/splide/dist/css/splide-core.min.css";
+import clsx from "clsx";
 import { useTranslation } from "react-i18next";
 import reactCropUrl from "react-image-crop/dist/ReactCrop.css";
 import rdtStylesheet from "remix-development-tools/index.css";
@@ -140,6 +142,45 @@ export const handle = {
    i18n: "auth",
 };
 
+function ProgressBar() {
+   const navigation = useNavigation();
+   const active = navigation.state !== "idle";
+
+   const ref = useRef<HTMLDivElement>(null);
+   const [animationComplete, setAnimationComplete] = useState(true);
+
+   useEffect(() => {
+      if (!ref.current) return;
+      if (active) setAnimationComplete(false);
+
+      Promise.allSettled(
+         ref.current.getAnimations().map(({ finished }) => finished),
+      ).then(() => !active && setAnimationComplete(true));
+   }, [active]);
+
+   return (
+      <div
+         role="progressbar"
+         aria-hidden={!active}
+         aria-valuetext={active ? "Loading" : undefined}
+         className="fixed inset-x-0 top-0 left-0 z-[99999] h-1 animate-pulse"
+      >
+         <div
+            ref={ref}
+            className={clsx(
+               "h-full bg-gradient-to-r from-blue-500 to-teal-500 transition-all duration-500 ease-in-out",
+               navigation.state === "idle" &&
+                  animationComplete &&
+                  "w-0 opacity-0 transition-none",
+               navigation.state === "submitting" && "w-4/12",
+               navigation.state === "loading" && "w-10/12",
+               navigation.state === "idle" && !animationComplete && "w-full",
+            )}
+         />
+      </div>
+   );
+}
+
 function App() {
    const { locale, toast } = useLoaderData<typeof loader>();
    const { i18n } = useTranslation();
@@ -219,6 +260,7 @@ function App() {
             <Links />
          </head>
          <body className="text-light dark:text-dark">
+            <ProgressBar />
             <div
                data-vaul-drawer-wrapper=""
                className="max-laptop:min-h-screen bg-white dark:bg-bg3Dark"
