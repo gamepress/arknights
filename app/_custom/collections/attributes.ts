@@ -2,9 +2,9 @@ import type { CollectionConfig } from "payload/types";
 
 import { isStaff } from "../../db/collections/users/users.access";
 
-export const Professions: CollectionConfig = {
-   slug: "professions",
-   labels: { singular: "Profession", plural: "Professions" },
+export const Attributes: CollectionConfig = {
+   slug: "attributes",
+   labels: { singular: "Attribute", plural: "Attributes" },
    admin: {
       group: "Custom",
       useAsTitle: "name",
@@ -21,13 +21,12 @@ export const Professions: CollectionConfig = {
          type: "text",
       },
       {
-         name: "name",
+         name: "key",
          type: "text",
       },
       {
-         name: "icon",
-         type: "upload",
-         relationTo: "images",
+         name: "name",
+         type: "text",
       },
       {
          name: "checksum",

@@ -4,7 +4,7 @@ import { isStaff } from "../../db/collections/users/users.access";
 
 export const OperatorTags: CollectionConfig = {
    slug: "operator-tags",
-   labels: { singular: "operator-tag", plural: "operator-tags" },
+   labels: { singular: "Operator Tag", plural: "Operator Tags" },
    admin: {
       group: "Custom",
       useAsTitle: "name",

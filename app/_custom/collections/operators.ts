@@ -4,7 +4,7 @@ import { isStaff } from "../../db/collections/users/users.access";
 
 export const Operators: CollectionConfig = {
    slug: "operators",
-   labels: { singular: "operator", plural: "operators" },
+   labels: { singular: "Operator", plural: "Operators" },
    admin: {
       group: "Custom",
       useAsTitle: "name",
@@ -119,7 +119,7 @@ export const Operators: CollectionConfig = {
             {
                name: "range",
                type: "relationship",
-               relationTo: "ranges-data",
+               relationTo: "ranges",
             },
             {
                name: "hp",

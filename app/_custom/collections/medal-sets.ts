@@ -4,7 +4,7 @@ import { isStaff } from "../../db/collections/users/users.access";
 
 export const MedalSets: CollectionConfig = {
    slug: "medal-sets",
-   labels: { singular: "medal-set", plural: "medal-sets" },
+   labels: { singular: "Medal Set", plural: "Medal Sets" },
    admin: {
       group: "Custom",
       useAsTitle: "name",
