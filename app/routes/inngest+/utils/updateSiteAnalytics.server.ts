@@ -280,6 +280,7 @@ export const updateSiteAnalytics = inngest.createFunction(
             //@ts-ignore
             const { entryData }: { entryData: PaginatedDocs<Entry> } =
                await authGQLFetcher({
+                  isAuthOverride: true,
                   customPath:
                      customCollection && !!siteDomain
                         ? `https://${siteDomain}:4000/api/graphql`
@@ -447,6 +448,7 @@ export const updateSiteAnalytics = inngest.createFunction(
 
       // Update site with new data
       await authRestFetcher({
+         isAuthOverride: true,
          method: "PATCH",
          path: `https://mana.wiki/api/sites/${siteId}`,
          body: {
