@@ -2,9 +2,9 @@ import type { CollectionConfig } from "payload/types";
 
 import { isStaff } from "../../db/collections/users/users.access";
 
-export const MedalTypes: CollectionConfig = {
-   slug: "medal-types",
-   labels: { singular: "Medal Type", plural: "Medal Types" },
+export const Illustrators: CollectionConfig = {
+   slug: "illustrators",
+   labels: { singular: "Illustrator", plural: "Illustrators" },
    admin: {
       group: "Custom",
       useAsTitle: "name",
@@ -25,8 +25,16 @@ export const MedalTypes: CollectionConfig = {
          type: "text",
       },
       {
-         name: "sort_id",
-         type: "number",
+         name: "operators",
+         type: "relationship",
+         relationTo: "operators",
+         hasMany: true,
+      },
+      {
+         name: "skins",
+         type: "relationship",
+         relationTo: "skins",
+         hasMany: true,
       },
       {
          name: "checksum",

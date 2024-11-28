@@ -1,37 +1,39 @@
 import { Attributes } from "./attributes";
+import { BaseSkills } from "./base-skills";
 import { Factions } from "./factions";
-import { MaterialTypes } from "./material-types";
+import { Illustrators } from "./illustrators";
 import { Materials } from "./materials";
-import { MedalSets } from "./medal-sets";
-import { MedalTypes } from "./medal-types";
-import { Medals } from "./medals";
-import { OperatorTags } from "./operator-tags";
+import { Modules } from "./modules";
 import { Operators } from "./operators";
+import { Paradoxes } from "./paradoxes";
 import { Positions } from "./positions";
 import { Professions } from "./professions";
 import { Ranges } from "./ranges";
 import { Rarities } from "./rarities";
+import { Skills } from "./skills";
 import { SkinBrands } from "./skin-brands";
-import { SkinQuotes } from "./skin-quotes";
 import { Skins } from "./skins";
+import { Tags } from "./tags";
 import { Tooltips } from "./tooltips";
+import { VoiceActors } from "./voice-actors";
 
 export const CustomCollections = [
    Attributes,
+   BaseSkills,
    Factions,
-   MaterialTypes,
+   Illustrators,
    Materials,
-   MedalSets,
-   MedalTypes,
-   Medals,
-   OperatorTags,
+   Modules,
    Operators,
+   Paradoxes,
    Positions,
    Professions,
    Ranges,
    Rarities,
+   Skills,
    SkinBrands,
-   SkinQuotes,
    Skins,
+   Tags,
    Tooltips,
+   VoiceActors,
 ];

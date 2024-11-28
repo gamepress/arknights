@@ -25,38 +25,38 @@ export const Materials: CollectionConfig = {
          type: "text",
       },
       {
+         name: "icon",
+         type: "upload",
+         relationTo: "images",
+      },
+      {
          name: "name",
          type: "text",
       },
       {
-         name: "icon",
-         type: "upload",
-         relationTo: "images",
+         name: "description",
+         type: "text",
       },
       {
          name: "rarity",
          type: "relationship",
          relationTo: "rarities",
       },
+      //{
+      //   name: "type",
+      //   type: "select",
+      //   options: [ ],
+      //},
       {
-         name: "type",
-         type: "relationship",
-         relationTo: "material-types",
-      },
-      {
-         name: "sort_id",
+         name: "sortId",
          type: "number",
-      },
-      {
-         name: "desc",
-         type: "text",
       },
       {
          name: "usage",
          type: "text",
       },
       {
-         name: "obtain",
+         name: "obtainApproach",
          type: "text",
       },
       {
@@ -64,7 +64,6 @@ export const Materials: CollectionConfig = {
          type: "select",
          hasMany: true,
          options: [
-            { label: "CN", value: "cn" },
             { label: "NA", value: "na" },
          ],
       },

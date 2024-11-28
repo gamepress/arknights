@@ -21,7 +21,7 @@ export const Rarities: CollectionConfig = {
          type: "text",
       },
       {
-         name: "num",
+         name: "number",
          type: "number",
       },
       {

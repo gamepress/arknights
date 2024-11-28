@@ -21,8 +21,9 @@ export const Attributes: CollectionConfig = {
          type: "text",
       },
       {
-         name: "key",
-         type: "text",
+         name: "icon",
+         type: "upload",
+         relationTo: "images",
       },
       {
          name: "name",

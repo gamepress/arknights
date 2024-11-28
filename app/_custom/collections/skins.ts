@@ -21,7 +21,24 @@ export const Skins: CollectionConfig = {
          type: "text",
       },
       {
+         name: "slug",
+         type: "text",
+      },
+      {
+         name: "icon",
+         type: "upload",
+         relationTo: "images",
+      },
+      {
          name: "name",
+         type: "text",
+      },
+      {
+         name: "description",
+         type: "text",
+      },
+      {
+         name: "content",
          type: "text",
       },
       {
@@ -35,35 +52,49 @@ export const Skins: CollectionConfig = {
          relationTo: "skin-brands",
       },
       {
-         name: "description",
-         type: "text",
-      },
-      {
-         name: "dialog",
-         type: "text",
-      },
-      {
-         name: "usage",
-         type: "text",
-      },
-      {
-         name: "obtain",
-         type: "text",
-      },
-      {
-         name: "availability",
-         type: "select",
+         name: "illustrators",
+         type: "relationship",
+         relationTo: "illustrators",
          hasMany: true,
-         options: [
-            { label: "CN", value: "cn" },
-            { label: "NA", value: "na" },
-         ],
+      },
+      {
+         name: "portrait",
+         type: "upload",
+         relationTo: "images",
+      },
+      {
+         name: "splash",
+         type: "upload",
+         relationTo: "images",
       },
       {
          name: "quotes",
-         type: "relationship",
-         relationTo: "skin-quotes",
-         hasMany: true,
+         type: "array",
+         fields: [
+            {
+               name: "title",
+               type: "text",
+            },
+            {
+               name: "text",
+               type: "text",
+            },
+            {
+               name: "unlockCondition",
+               type: "select",
+               options: [
+                  { label: "Trust", value: "FAVOR" },
+                  { label: "Promotion", value: "AWAKE" },
+               ],
+            },
+            {
+               name: "unlockConditionValue",
+               type: "number",
+               admin: {
+                  condition: (_, siblingData) => siblingData.unlock_cond == "FAVOR"
+               }
+            },
+         ],
       },
       {
          name: "checksum",

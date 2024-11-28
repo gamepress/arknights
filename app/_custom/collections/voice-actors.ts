@@ -2,9 +2,9 @@ import type { CollectionConfig } from "payload/types";
 
 import { isStaff } from "../../db/collections/users/users.access";
 
-export const SkinQuotes: CollectionConfig = {
-   slug: "skin-quotes",
-   labels: { singular: "Skin Quote", plural: "Skin Quotes" },
+export const VoiceActors: CollectionConfig = {
+   slug: "voice-actors",
+   labels: { singular: "Voice Actor", plural: "Voice Actors" },
    admin: {
       group: "Custom",
       useAsTitle: "name",
@@ -21,11 +21,7 @@ export const SkinQuotes: CollectionConfig = {
          type: "text",
       },
       {
-         name: "title",
-         type: "text",
-      },
-      {
-         name: "text",
+         name: "name",
          type: "text",
       },
       {

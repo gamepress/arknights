@@ -21,7 +21,7 @@ export const Tooltips: CollectionConfig = {
          type: "text",
       },
       {
-         name: "desc",
+         name: "description",
          type: "text",
       },
       {

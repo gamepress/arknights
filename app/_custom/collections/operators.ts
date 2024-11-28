@@ -25,20 +25,16 @@ export const Operators: CollectionConfig = {
          type: "text",
       },
       {
-         name: "name",
-         type: "text",
-      },
-      {
-         name: "name_cn",
-         type: "text",
-      },
-      {
          name: "icon",
          type: "upload",
          relationTo: "images",
       },
       {
-         name: "display_no",
+         name: "name",
+         type: "text",
+      },
+      {
+         name: "displayNo",
          type: "text",
       },
       {
@@ -57,7 +53,7 @@ export const Operators: CollectionConfig = {
          relationTo: "professions",
       },
       {
-         name: "sub_profession",
+         name: "subProfession",
          type: "relationship",
          relationTo: "professions",
       },
@@ -67,32 +63,28 @@ export const Operators: CollectionConfig = {
          relationTo: "factions",
       },
       {
-         name: "group",
-         type: "relationship",
-         relationTo: "factions",
-      },
-      {
          name: "team",
          type: "relationship",
          relationTo: "factions",
       },
       {
-         name: "obtainable",
-         type: "checkbox",
+         name: "group",
+         type: "relationship",
+         relationTo: "factions",
       },
       {
-         name: "obtain",
+         name: "obtainApproach",
          type: "text",
       },
       {
-         name: "potential_item",
+         name: "potentialItem",
          type: "relationship",
          relationTo: "materials",
       },
       {
          name: "tags",
          type: "relationship",
-         relationTo: "operator-tags",
+         relationTo: "tags",
          hasMany: true,
       },
       {
@@ -100,79 +92,56 @@ export const Operators: CollectionConfig = {
          type: "select",
          hasMany: true,
          options: [
-            { label: "CN", value: "cn" },
             { label: "NA", value: "na" },
          ],
       },
+      // These are "skins" but since they're just the default / elite skins, we hold them here.
+      // We don't want these in the skin collection because they're not actual "skins" in the game.
       {
-         name: "phases",
+         name: "illustrators",
+         type: "relationship",
+         relationTo: "illustrators",
+         hasMany: true,
+      },
+      {
+         name: "promotionAssets",
          type: "array",
          fields: [
             {
-               name: "phase",
-               type: "number",
+               name: "icon",
+               type: "upload",
+               relationTo: "images",
             },
             {
-               name: "max_lv",
-               type: "number",
+               name: "portrait",
+               type: "upload",
+               relationTo: "images",
             },
             {
-               name: "range",
-               type: "relationship",
-               relationTo: "ranges",
+               name: "splash",
+               type: "upload",
+               relationTo: "images",
             },
-            {
-               name: "hp",
-               type: "number",
-            },
-            {
-               name: "max_hp",
-               type: "number",
-            },
-            {
-               name: "atk",
-               type: "number",
-            },
-            {
-               name: "max_atk",
-               type: "number",
-            },
-            {
-               name: "def",
-               type: "number",
-            },
-            {
-               name: "max_def",
-               type: "number",
-            },
-            {
-               name: "mag_res",
-               type: "number",
-            },
-            {
-               name: "respawn_time",
-               type: "number",
-            },
-            {
-               name: "cost",
-               type: "number",
-            },
-            {
-               name: "block_cnt",
-               type: "number",
-            },
-            {
-               name: "atk_time",
-               type: "number",
-            }
          ],
       },
       {
-         name: "potentials",
+         name: "trait",
          type: "array",
          fields: [
             {
-               name: "desc",
+               name: "promotion",
+               type: "number",
+            },
+            {
+               name: "level",
+               type: "number",
+            },
+            {
+               name: "potential",
+               type: "number",
+            },
+            {
+               name: "description",
                type: "text",
             },
             {
@@ -181,21 +150,312 @@ export const Operators: CollectionConfig = {
                fields: [
                   {
                      name: "type",
-                     type: "text" // TODO(dim): Maybe select for enumeration?
+                     type: "text", // TODO(dim): Maybe select for enumeration?
                   },
                   {
-                     name: "val",
-                     type: "number"
-                  }
-               ]
-            }
+                     name: "value",
+                     type: "number",
+                  },
+               ],
+            },
+         ],
+      },
+      {
+         name: "promotions",
+         type: "array",
+         fields: [
+            {
+               name: "promotion",
+               type: "number",
+            },
+            {
+               name: "maxLevel",
+               type: "number",
+            },
+            {
+               name: "range",
+               type: "relationship",
+               relationTo: "ranges",
+            },
+            {
+               name: "attributes",
+               type: "array",
+               fields: [
+                  {
+                     "name": "attribute",
+                     "type": "relationship",
+                     "relationTo": "attributes",
+                  },
+                  {
+                     "name": "base",
+                     "type": "number",
+                  },
+                  {
+                     "name": "max",
+                     "type": "number",
+                  },
+               ],
+            },
+         ],
+      },
+      {
+         name: "trust",
+         type: "array",
+         fields: [
+            {
+               name: "attribute",
+               type: "relationship",
+               relationTo: "attributes",
+            },
+            {
+               name: "value",
+               type: "number",
+            },
+         ],
+      },
+      {
+         name: "potentials",
+         type: "array",
+         fields: [
+            {
+               name: "potential",
+               type: "number",
+            },
+            {
+               name: "description",
+               type: "text",
+            },
+            {
+               name: "modifiers",
+               type: "array",
+               fields: [
+                  {
+                     name: "type",
+                     type: "text", // TODO(dim): Maybe select for enumeration?
+                  },
+                  {
+                     name: "value",
+                     type: "number",
+                  },
+               ],
+            },
+         ],
+      },
+      {
+         name: "talents",
+         type: "array",
+         fields: [
+            {
+               name: "name",
+               type: "text",
+            },
+            {
+               name: "upgrades",
+               type: "array",
+               fields: [
+                  {
+                     name: "promotion",
+                     type: "number",
+                  },
+                  {
+                     name: "level",
+                     type: "number",
+                  },
+                  {
+                     name: "potential",
+                     type: "number",
+                  },
+                  {
+                     name: "description",
+                     type: "text",
+                  },
+                  {
+                     name: "modifiers",
+                     type: "array",
+                     fields: [
+                        {
+                           name: "type",
+                           type: "text", // TODO(dim): Maybe select for enumeration?
+                        },
+                        {
+                           name: "value",
+                           type: "number",
+                        },
+                     ],
+                  },
+               ],
+            },
+         ],
+      },
+      {
+         name: "skills",
+         type: "array",
+         fields: [
+            {
+               name: "potential",
+               type: "number",
+            },
+            {
+               name: "level",
+               type: "number",
+            },
+            {
+               name: "skill",
+               type: "relationship",
+               relationTo: "skills",
+            },
+            {
+               name: "upgradeCost",
+               type: "array",
+               fields: [
+                  {
+                     name: "potential",
+                     type: "number",
+                  },
+                  {
+                     name: "level",
+                     type: "number",
+                  },
+                  {
+                     name: "time",
+                     type: "number",
+                  },
+                  {
+                     name: "cost",
+                     type: "array",
+                     fields: [
+                        {
+                           name: "material",
+                           type: "relationship",
+                           relationTo: "materials",
+                        },
+                        {
+                           name: "quantity",
+                           type: "number",
+                        },
+                     ],
+                  },
+               ],
+            },
+         ],
+      },
+      {
+         name: "modules",
+         type: "relationship",
+         relationTo: "modules",
+         hasMany: true,
+      },
+      {
+         name: "baseSkillUpgradeCost",
+         type: "array",
+         fields: [
+            {
+               name: "skillLevel",
+               type: "number",
+            },
+            {
+               name: "potential",
+               type: "number",
+            },
+            {
+               name: "level",
+               type: "number",
+            },
+            {
+               name: "cost",
+               type: "array",
+               fields: [
+                  {
+                     name: "material",
+                     type: "relationship",
+                     relationTo: "materials",
+                  },
+                  {
+                     name: "quantity",
+                     type: "number",
+                  },
+               ],
+            },
          ]
+      },
+      {
+         name: "paradoxSimulation",
+         type: "relationship",
+         relationTo: "paradoxes",
+      },
+      {
+         name: "baseSkills",
+         type: "array",
+         fields: [
+            {
+               name: "upgrades",
+               type: "array",
+               fields: [
+                  {
+                     name: "promotion",
+                     type: "number",
+                  },
+                  {
+                     name: "level",
+                     type: "number",
+                  },
+                  {
+                     name: "skill",
+                     type: "relationship",
+                     relationTo: "base-skills",
+                  },
+               ],
+            },
+         ],
       },
       {
          name: "skins",
          type: "relationship",
          relationTo: "skins",
          hasMany: true,
+      },
+      {
+         name: "stories",
+         type: "array",
+         fields: [
+            {
+               name: "title",
+               type: "text",
+            },
+            {
+               name: "text",
+               type: "text",
+            },
+         ],
+      },
+      {
+         name: "quotes",
+         type: "array",
+         fields: [
+            {
+               name: "title",
+               type: "text",
+            },
+            {
+               name: "text",
+               type: "text",
+            },
+            {
+               name: "unlockCondition",
+               type: "select",
+               options: [
+                  { label: "Trust", value: "FAVOR" },
+                  { label: "Promotion", value: "AWAKE" },
+               ],
+            },
+            {
+               name: "unlockConditionValue",
+               type: "number",
+               admin: {
+                  condition: (_, siblingData) => siblingData.unlock_cond == "FAVOR"
+               }
+            },
+         ],
       },
       {
          name: "checksum",

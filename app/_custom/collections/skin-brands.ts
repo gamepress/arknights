@@ -21,7 +21,7 @@ export const SkinBrands: CollectionConfig = {
          type: "text",
       },
       {
-         name: "name",
+         name: "slug",
          type: "text",
       },
       {
@@ -30,8 +30,32 @@ export const SkinBrands: CollectionConfig = {
          relationTo: "images",
       },
       {
+         name: "name",
+         type: "text",
+      },
+      {
          name: "description",
          type: "text",
+      },
+      {
+         name: "releases",
+         type: "array",
+         fields: [
+            {
+               name: "name",
+               type: "text",
+            },
+            {
+               name: "year",
+               type: "number",
+            },
+            {
+               name: "skins",
+               type: "relationship",
+               relationTo: "skins",
+               hasMany: true,
+            },
+         ],
       },
       {
          name: "checksum",

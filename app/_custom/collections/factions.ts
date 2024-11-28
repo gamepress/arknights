@@ -21,13 +21,13 @@ export const Factions: CollectionConfig = {
          type: "text",
       },
       {
-         name: "name",
-         type: "text",
-      },
-      {
          name: "icon",
          type: "upload",
          relationTo: "images",
+      },
+      {
+         name: "name",
+         type: "text",
       },
       {
          name: "checksum",
