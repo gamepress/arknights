@@ -34,12 +34,13 @@ export const Modules: CollectionConfig = {
          type: "text",
       },
       {
-         name: "type",
-         type: "select",
-         options: [
-            { label: "Initial", value: "INITIAL", },
-            { label: "Advanced", value: "ADVANCED", },
-         ],
+         name: "typeIcon",
+         type: "upload",
+         relationTo: "images",
+      },
+      {
+         name: "typeName",
+         type: "text",
       },
       {
          name: "operator",
