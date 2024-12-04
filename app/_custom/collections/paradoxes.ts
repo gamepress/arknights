@@ -29,13 +29,18 @@ export const Paradoxes: CollectionConfig = {
          type: "text",
       },
       {
-         name: "promotion",
+         name: "requiredPromotion",
          type: "number",
       },
       {
-         name: "level",
+         name: "requiredLevel",
          type: "number",
       },
+      //{
+      //   name: "stage",
+      //   type: "relationship",
+      //   relationTo: "stages",
+      //},
       {
          name: "rewards",
          type: "array",

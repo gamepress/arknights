@@ -129,15 +129,15 @@ export const Operators: CollectionConfig = {
          type: "array",
          fields: [
             {
-               name: "promotion",
+               name: "requiredPromotion",
                type: "number",
             },
             {
-               name: "level",
+               name: "requiredLevel",
                type: "number",
             },
             {
-               name: "potential",
+               name: "requiredPotential",
                type: "number",
             },
             {
@@ -254,15 +254,15 @@ export const Operators: CollectionConfig = {
                type: "array",
                fields: [
                   {
-                     name: "promotion",
+                     name: "requiredPromotion",
                      type: "number",
                   },
                   {
-                     name: "level",
+                     name: "requiredLevel",
                      type: "number",
                   },
                   {
-                     name: "potential",
+                     name: "requiredPotential",
                      type: "number",
                   },
                   {
@@ -292,11 +292,11 @@ export const Operators: CollectionConfig = {
          type: "array",
          fields: [
             {
-               name: "potential",
+               name: "requiredPromotion",
                type: "number",
             },
             {
-               name: "level",
+               name: "requiredLevel",
                type: "number",
             },
             {
@@ -305,19 +305,19 @@ export const Operators: CollectionConfig = {
                relationTo: "skills",
             },
             {
-               name: "upgradeCost",
+               name: "cost",
                type: "array",
                fields: [
                   {
-                     name: "potential",
+                     name: "requiredPromotion",
                      type: "number",
                   },
                   {
-                     name: "level",
+                     name: "requiredLevel",
                      type: "number",
                   },
                   {
-                     name: "time",
+                     name: "upgradeTime",
                      type: "number",
                   },
                   {
@@ -338,12 +338,6 @@ export const Operators: CollectionConfig = {
                ],
             },
          ],
-      },
-      {
-         name: "modules",
-         type: "relationship",
-         relationTo: "modules",
-         hasMany: true,
       },
       {
          name: "baseSkillUpgradeCost",
@@ -379,11 +373,6 @@ export const Operators: CollectionConfig = {
          ]
       },
       {
-         name: "paradoxSimulation",
-         type: "relationship",
-         relationTo: "paradoxes",
-      },
-      {
          name: "baseSkills",
          type: "array",
          fields: [
@@ -392,11 +381,11 @@ export const Operators: CollectionConfig = {
                type: "array",
                fields: [
                   {
-                     name: "promotion",
+                     name: "requiredPromotion",
                      type: "number",
                   },
                   {
-                     name: "level",
+                     name: "requiredLevel",
                      type: "number",
                   },
                   {
@@ -407,6 +396,17 @@ export const Operators: CollectionConfig = {
                ],
             },
          ],
+      },
+      {
+         name: "modules",
+         type: "relationship",
+         relationTo: "modules",
+         hasMany: true,
+      },
+      {
+         name: "paradoxSimulation",
+         type: "relationship",
+         relationTo: "paradoxes",
       },
       {
          name: "skins",

@@ -48,11 +48,11 @@ export const Modules: CollectionConfig = {
          relationTo: "operators",
       },
       {
-         name: "level",
+         name: "unlockLevel",
          type: "number",
       },
       {
-         name: "trust",
+         name: "unlockTrust",
          type: "number",
       },
       {
@@ -71,11 +71,11 @@ export const Modules: CollectionConfig = {
          ],
       },
       {
-         name: "stages",
+         name: "levels",
          type: "array",
          fields: [
             {
-               name: "number",
+               name: "level",
                type: "number",
             },
             {
