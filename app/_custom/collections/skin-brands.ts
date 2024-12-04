@@ -38,24 +38,14 @@ export const SkinBrands: CollectionConfig = {
          type: "text",
       },
       {
-         name: "releases",
-         type: "array",
-         fields: [
-            {
-               name: "name",
-               type: "text",
-            },
-            {
-               name: "year",
-               type: "number",
-            },
-            {
-               name: "skins",
-               type: "relationship",
-               relationTo: "skins",
-               hasMany: true,
-            },
-         ],
+         name: "year",
+         type: "number",
+      },
+      {
+         name: "skins",
+         type: "relationship",
+         relationTo: "skins",
+         hasMany: true,
       },
       {
          name: "checksum",
