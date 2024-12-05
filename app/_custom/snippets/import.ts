@@ -11,7 +11,6 @@ const USER_ID = "644069d751c100f909f89e62"; // TODO(dim): Not hardcode this valu
 interface IDataEntry {
     collection: string;
     data: IDataEntryData;
-    checksum: string;
     path?: string;
 }
 
@@ -34,7 +33,6 @@ async function importEntry(entry: IDataEntry): Promise<void> {
             collection: entry.collection,
             data: {
                 ...entry.data,
-                checksum: entry.checksum,
                 createdBy: USER_ID,
             },
             filePath: entry.path ? entry.path : undefined,
@@ -47,7 +45,6 @@ async function importEntry(entry: IDataEntry): Promise<void> {
         id: entry.data.id,
         data: {
             ...entry.data,
-            checksum: entry.checksum,
             createdBy: USER_ID,
         },
         filePath: entry.path ? entry.path : undefined,
@@ -61,7 +58,7 @@ async function beginImport(data: IDataEntry[]): Promise<void> {
             await delay(500);
             await importEntry(entry);
         } catch (e) {
-            payload.logger.error(`Failed to add asset: ${entry.path} (${entry.checksum})!`);
+            payload.logger.error(`Failed to add asset: ${entry.path} (${entry.data.checksum})!`);
             payload.logger.error(e);
         }
     }
@@ -71,7 +68,7 @@ async function beginImport(data: IDataEntry[]): Promise<void> {
         try {
             return importEntry(entry);
         } catch (e) {
-            payload.logger.error(`Failed to add entry: ${entry.collection} (${entry.checksum})!`);
+            payload.logger.error(`Failed to add entry: ${entry.collection} (${entry.data.checksum})!`);
             payload.logger.error(e);
         }
     }));
