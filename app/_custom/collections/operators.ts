@@ -108,12 +108,11 @@ export const Operators: CollectionConfig = {
          type: "array",
          fields: [
             {
-               name: "icon",
-               type: "upload",
-               relationTo: "images",
+               name: "promotion",
+               type: "number",
             },
             {
-               name: "portrait",
+               name: "icon",
                type: "upload",
                relationTo: "images",
             },

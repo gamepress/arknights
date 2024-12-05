@@ -58,11 +58,6 @@ export const Skins: CollectionConfig = {
          hasMany: true,
       },
       {
-         name: "portrait",
-         type: "upload",
-         relationTo: "images",
-      },
-      {
          name: "splash",
          type: "upload",
          relationTo: "images",
