@@ -26,7 +26,7 @@ export const BaseRooms: CollectionConfig = {
       },
       {
          name: "description",
-         name: "text",
+         type: "text",
       },
       {
          name: "maxCount",

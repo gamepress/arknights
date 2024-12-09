@@ -38,110 +38,108 @@ export const Formulas: CollectionConfig = {
          type: "array",
          fields: [
             {
-               {
-                  name: "count",
-                  type: "number",
-               },
-               {
-                  name: "time",
-                  type: "number",
-                  admin: {
-                     condition: (_, siblingData) => siblingData.type == "FACTORY",
-                  },
-               },
-               {
-                  name: "moodCost",
-                  type: "number",
-                  admin: {
-                     condition: (_, siblingData) => siblingData.type == "WORKSHOP",
-                  },
-               },
-               {
-                  name: "lmdCost",
-                  type: "number",
-                  admin: {
-                     condition: (_, siblingData) => siblingData.type == "WORKSHOP",
-                  },
-               },
-               {
-                  name: "extraByproductRate",
-                  type: "number",
-                  admin: {
-                     condition: (_, siblingData) => siblingData.type == "WORKSHOP",
-                  },
-               },
-               {
-                  name: "Extrabyproducts",
-                  type: "array",
-                  admin: {
-                     condition: (_, siblingData) => siblingData.type == "WORKSHOP",
-                  },
-                  fields: [
-                     {
-                        name: "material",
-                        type: "relationship",
-                        relationTo: "materials",
-                     },
-                     {
-                        name: "quantity",
-                        type: "number",
-                     },
-                     {
-                        name: "weight",
-                        type: "number",
-                     },
-                  ],
-               },
-               {
-                  name: "cost",
-                  type: "array",
-                  fields: [
-                     {
-                        name: "material",
-                        type: "relationship",
-                        relationTo: "materials",
-                     },
-                     {
-                        name: "quantity",
-                        type: "number",
-                     },
-                  ],
-               },
-               {
-                  name: "requiredRooms",
-                  type: "array",
-                  fields: [
-                     {
-                        name: "room",
-                        type: "relationship",
-                        relationTo: "base-rooms",
-                     },
-                     {
-                        name: "requiredLevel",
-                        type: "number",
-                     },
-                     {
-                        name: "requiredCount",
-                        type: "number",
-                     },
-                  ],
-               },
-               //{
-               //   name: "requiredStages",
-               //   type: "array",
-               //   fields: [
-               //      {
-               //         name: "stage",
-               //         type: "relationship",
-               //         relationTo: "stages",
-               //      },
-               //      {
-               //         name: "requiredRank",
-               //         type: "number",
-               //      },
-               //   ],
-               //},
+               name: "count",
+               type: "number",
             },
+            {
+               name: "time",
+               type: "number",
+               admin: {
+                  condition: (_, siblingData) => siblingData.type == "FACTORY",
+               },
+            },
+            {
+               name: "moodCost",
+               type: "number",
+               admin: {
+                  condition: (_, siblingData) => siblingData.type == "WORKSHOP",
+               },
+            },
+            {
+               name: "lmdCost",
+               type: "number",
+               admin: {
+                  condition: (_, siblingData) => siblingData.type == "WORKSHOP",
+               },
+            },
+            {
+               name: "extraByproductRate",
+               type: "number",
+               admin: {
+                  condition: (_, siblingData) => siblingData.type == "WORKSHOP",
+               },
+            },
+            {
+               name: "Extrabyproducts",
+               type: "array",
+               admin: {
+                  condition: (_, siblingData) => siblingData.type == "WORKSHOP",
+               },
+               fields: [
+                  {
+                     name: "material",
+                     type: "relationship",
+                     relationTo: "materials",
+                  },
+                  {
+                     name: "quantity",
+                     type: "number",
+                  },
+                  {
+                     name: "weight",
+                     type: "number",
+                  },
+               ],
+            },
+            {
+               name: "cost",
+               type: "array",
+               fields: [
+                  {
+                     name: "material",
+                     type: "relationship",
+                     relationTo: "materials",
+                  },
+                  {
+                     name: "quantity",
+                     type: "number",
+                  },
+               ],
+            },
+            {
+               name: "requiredRooms",
+               type: "array",
+               fields: [
+                  {
+                     name: "room",
+                     type: "relationship",
+                     relationTo: "base-rooms",
+                  },
+                  {
+                     name: "requiredLevel",
+                     type: "number",
+                  },
+                  {
+                     name: "requiredCount",
+                     type: "number",
+                  },
+               ],
+            },
+            //{
+            //   name: "requiredStages",
+            //   type: "array",
+            //   fields: [
+            //      {
+            //         name: "stage",
+            //         type: "relationship",
+            //         relationTo: "stages",
+            //      },
+            //      {
+            //         name: "requiredRank",
+            //         type: "number",
+            //      },
+            //   ],
+            //},
          ],
       },
       {
