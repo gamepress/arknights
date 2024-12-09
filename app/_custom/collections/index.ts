@@ -1,6 +1,8 @@
 import { Attributes } from "./attributes";
+import { BaseRooms } from "./base-rooms";
 import { BaseSkills } from "./base-skills";
 import { Factions } from "./factions";
+import { Formulas } from "./formulas";
 import { Illustrators } from "./illustrators";
 import { Materials } from "./materials";
 import { Modules } from "./modules";
@@ -19,8 +21,10 @@ import { VoiceActors } from "./voice-actors";
 
 export const CustomCollections = [
    Attributes,
+   BaseRooms,
    BaseSkills,
    Factions,
+   Formulas,
    Illustrators,
    Materials,
    Modules,

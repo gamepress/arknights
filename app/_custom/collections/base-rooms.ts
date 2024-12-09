@@ -2,9 +2,9 @@ import type { CollectionConfig } from "payload/types";
 
 import { isStaff } from "../../db/collections/users/users.access";
 
-export const BaseSkills: CollectionConfig = {
-   slug: "base-skills",
-   labels: { singular: "Base Skill", plural: "Base Skills" },
+export const BaseRooms: CollectionConfig = {
+   slug: "base-rooms",
+   labels: { singular: "Base Room", plural: "Base Rooms" },
    admin: {
       group: "Custom",
       useAsTitle: "name",
@@ -21,29 +21,22 @@ export const BaseSkills: CollectionConfig = {
          type: "text",
       },
       {
-         name: "icon",
-         type: "upload",
-         relationTo: "images",
-      },
-      {
          name: "name",
          type: "text",
       },
       {
          name: "description",
-         type: "text",
+         name: "text",
       },
       {
-         name: "room",
-         type: "relationship",
-         relationTo: "base-rooms",
+         name: "maxCount",
+         type: "number",
       },
-      {
-         name: "operators",
-         type: "relationship",
-         relationTo: "operators",
-         hasMany: true,
-      },
+      //{
+      //   name: "upgrades",
+      //   type: "array",
+      //   fields: []
+      //},
       {
          name: "checksum",
          type: "text",
