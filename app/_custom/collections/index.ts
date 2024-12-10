@@ -3,6 +3,9 @@ import { BaseRooms } from "./base-rooms";
 import { BaseSkills } from "./base-skills";
 import { Factions } from "./factions";
 import { Formulas } from "./formulas";
+import { FurnitureGroups } from "./furniture-groups";
+import { FurnitureThemes } from "./furniture-themes";
+import { Furnitures } from "./furnitures";
 import { Illustrators } from "./illustrators";
 import { Materials } from "./materials";
 import { Modules } from "./modules";
@@ -25,6 +28,9 @@ export const CustomCollections = [
    BaseSkills,
    Factions,
    Formulas,
+   FurnitureGroups,
+   FurnitureThemes,
+   Furnitures,
    Illustrators,
    Materials,
    Modules,
